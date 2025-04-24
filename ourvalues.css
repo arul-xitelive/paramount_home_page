@@ -1,0 +1,45 @@
+.fixed-hr-lines {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    background: #f4f4f4;
+    padding: 20px 0;
+}
+
+.fixed-hr-lines hr {
+    border: none;
+    height: 2px;
+    background: #ccc;
+    margin: 0;
+}
+
+
+.content-box {
+    position: relative;
+    height: 400px; /* Adjust this based on your content height needs */
+    overflow: hidden;
+}
+
+.moving-content {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel {
+    height: 379px; /* Should match content-box height */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Optional: Add some spacing between panels if needed */
+.panel + .panel {
+    margin-top: 20px;
+}

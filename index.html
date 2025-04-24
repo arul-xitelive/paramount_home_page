@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="stayUpAnimation.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CSSRulePlugin.min.js"
+      integrity="sha512-DuFOjF8nENl6dQ5wo4UxE7nnDCyM7GqIDR94l1PTyt471sBI+cas1IE/qr0vBB2oiobT3JEUqCtkaCF4iG9emA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/CustomEase.min.js"
+      integrity="sha512-yKB//esSzR36AMUGcX9f7t7l/0A7t3YU5SGFb7V/6NJ0H7Nd8mSMdAZYXAGm7swXWOZcnR2mNHzYMHqpWpZ+OQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/EasePack.min.js"
+      integrity="sha512-j9YZejB9N3ddTwK4yDXuSQTfqfarVpifz4obWsV9hNhjr5NyL/XxTH34+GwBkCywGWrc18zrzBVxk2HidHb4Kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/EaselPlugin.min.js"
+      integrity="sha512-rwJtNautBzBMq4m3nFETs7FE9Gf2B85rQzMhebtPccgMtcJVIWs3CKLR/b2n48Q0YSyekC0xlPM3UVsVqJ2x4g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/Flip.min.js"
+      integrity="sha512-w7q/Mq+pfxzeeUjhZVM9lsH9PTHj7wFAev1wwJN7BzZdgENWNkDxzu8NdtHDVOwnoYb9x/hJZkysbYKj1QU/sw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"
+      integrity="sha512-AcqPGqrrAEtEwe+ADO5R8RbdFi7tuU7b/A2cJJH0Im0D18NRk5p5s4B3E5PMuO81KFw0ClN7J5SHVUJz7KOb0A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollToPlugin.min.js"
+      integrity="sha512-uLq4Xf3PvaO+NTghyBWeh43DxozRnHMM2vcwlxY+KVc7xv2PMLimAerptg7AbrdN2qZjAwExwV/IqGm4YQBPww=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/TextPlugin.min.js"
+      integrity="sha512-cxH9rbrf9TrOfYMunxS2cLhFg/hIFJP9/d8SdBT1To+D5BHf6XcYN6PGtLiN9baib6ve4JDOzaPrCTRyo/8J9g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!---icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link href="2025.css" rel="stylesheet" />
+    <link href="ourvalues.css" rel="stylesheet" />
+    <link rel="stylesheet" href="cursor.css" />
+  </head>
+
+  <body style="height: 100%">
+    <div class="moon-cursor" id="moon">
+      <div class="inner-flex">
+        <div class="inner-point"></div>
+      </div>
+    </div>
+    <div class="loader-container" id="loader">
+      <div class="loader"></div>
+    </div>
+    <!--- Header and Navigation ------->
+    <header>
+      <!-- Jumbotron -->
+      <div class="text-center top-nav" id="topNav">
+        <div class="container-fluid top-nav-container">
+          <div class="row top-nav-row justify-content-end">
+            <ul class="nav justify-content-end align-items-center w-100">
+              <li class="nav-item" id="corporate_li">
+                <a class="nav-link d-none d-md-block" href="{{ route('home') }}"
+                  ><i class="bi bi-globe"></i> &nbsp;Corporate Page</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('user-sign-in') }}">Login</a>
+              </li>
+              <li class="nav-item" id="country_li">
+                <form
+                  action="{{ route('country-change') }}"
+                  method="GET"
+                  id="country-select-form"
+                >
+                  <select
+                    class="form-select custom-select select"
+                    name="pref_country"
+                    onchange="contryPriceChangeInt(event)"
+                  >
+                    <!-- {{ get_prefered_country() }} -->
+                    <option>India</option>
+                    <option>UAE</option>
+                  </select>
+                </form>
+              </li>
+            </ul>
+            <!-- Right elements ends-->
+          </div>
+        </div>
+      </div>
+      <!-- Jumbotron -->
+
+      <!-- Navbar -->
+      <!-- Navigation Bar -->
+      <!-- Navigation Bar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white menu-nav">
+        <div class="container">
+          <!-- Logo -->
+          <a href="index.html" class="navbar-brand">
+            <img
+              src="img/logo1.svg"
+              class="menu-nav-logo"
+              alt="Logo"
+              width="120"
+            />
+          </a>
+
+          <!-- Search Box (Visible on larger screens, stacked on mobile) -->
+          <div class="search-container d-none d-lg-flex">
+            <input type="text" placeholder="Search..." class="search-input" />
+          </div>
+
+          <!-- Mobile Toggle Button -->
+          <button
+            class="navbar-toggler mobile-nav-toggle"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navmenu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+
+          <!-- Navigation Menu -->
+          <div class="collapse navbar-collapse" id="navmenu">
+            <!-- Search Box (Visible on mobile) -->
+            <div class="search-container d-lg-none">
+              <input type="text" placeholder="Search..." class="search-input" />
+            </div>
+
+            <!-- Navbar Links -->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="#hero" class="nav-link active">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a href="#services" class="nav-link">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a href="#departments" class="nav-link">Careers</a>
+              </li>
+              <li class="nav-item">
+                <a href="#doctors" class="nav-link">Support</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!--- Header and Navigation ends ------->
+    <main class="main">
+      <!-- Hero Section -->
+      <!--########################################################################################-->
+      <section class="bg-home">
+        <div class="container bg-home-flex">
+          <div class="containers ">
+            <div class="left-content">
+              <div id="inital-heading" style="display: none">Hello!</div>
+              <div class="big-text"><span id="typing-subheading"></span></div>
+              <div class="headings-class">
+                <h2 class="home-wrapper">
+                  <span class="animation-title">Empower.</span>
+                </h2>
+                <h2 class="home-wrapper">
+                  <span class="animation-title">Innovate.</span>
+                </h2>
+                <h2 class="home-wrapper">
+                  <span class="animation-title">Sustain.</span>
+                </h2>
+              </div>
+            </div>
+
+            <div class="right-content">
+              <div class="quote-box">
+                <div class="line"></div>
+                <div class="home-quote animated-text-container">
+                  <p class="text-to-animate">
+                    “We believe every kitchen can be a catalyst for healthier
+                    meals, thriving businesses, and sustainable growth.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--########################################################################################-->
+
+      <!-- /Hero Section -->
+      <!-- Journey Section -->
+      <!--########################################################################################-->
+
+      <!-- <section id="journey" class="journey section"> -->
+      <!----------------------------------------------->
+      <section class="our-jorny-timeline">
+        <div class="scroll-container">
+          <div class="container center-box">
+            <div class="container center-box">
+              <div class="row title-row">
+                <h1 id="our-journey" class="col value-title extraBold">
+                  Our Journey
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-container" style="width: 120vw">
+            <div class="timeline">
+              <div class="timeline-point-top"></div>
+              <div class="timeline-item active regular" id="1">
+                <div class="timeline-city regular">Abu Dhabi</div>
+                <div class="timeline-point-2"></div>
+                <div class="timeline-point"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-year">1988</div>
+              </div>
+              <div class="timeline-item regular" id="2">
+                <div class="timeline-city regular">Sharjah</div>
+                <div class="timeline-point-2"></div>
+                <div class="timeline-point"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-year">1998</div>
+              </div>
+              <div class="timeline-item regular" id="3">
+                <div class="timeline-city regular">Doha</div>
+                <div class="timeline-point-2"></div>
+                <div class="timeline-point"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-year">2002</div>
+              </div>
+              <div class="timeline-item regular" id="4">
+                <div class="timeline-city regular">Dubai</div>
+                <div class="timeline-point-2"></div>
+                <div class="timeline-point"></div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-year">2006</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Journey Section -->
+      <section class="journey-section jornal-bottom">
+        <div class="container center-box">
+          <div class="row mt-5">
+            <div class="inside-quote-box">
+              <p class="mobile-font">
+                <span class="animate-paragraph"
+                  >“Over <strong>36 years ago</strong>, we started as a
+                  <strong>small team on a mission to improve lives</strong> by
+                  transforming commercial kitchens. Armed
+                  <strong>with passion and ingenuity</strong>, we went from our
+                  <strong>first installation to a global presence</strong> -
+                  always <strong>guided by</strong> a commitment to
+                  <strong>quality, respect, and responsible innovation</strong
+                  >.”
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MileStone Section -->
+      <!--########################################################################################-->
+      <section id="milestone" class="milestone section">
+        <div class="container m-container cenermile-stone">
+          <h1
+            id="heading-1"
+            class="row main-title flex-center-mob extraBold container-wrapper"
+          >
+            <span class="slide-up-text">Key Milestones &</span>
+            <br />
+            <span class="slide-up-text">Growth</span>
+          </h1>
+          <div class="row flex-center-tab">
+            <div class="col-sm-12 col-lg-6 master-col-one">
+              <div
+                class="row flex-center-tab animated-text-container container-wrapper inner-height"
+              >
+                <h2 class="col col-md-12 slide-up-text milesone-heading">
+                  Foundations:
+                </h2>
+                <p
+                  id="paragraph-2"
+                  class="col col-md-12 description mobile-font scrub-letters"
+                >
+                  A modest operation focused on efficient kitchen solutions.
+                </p>
+              </div>
+              <div
+                class="row flex-center-tab container-wrapper inner-height"
+                id="inner-milestone"
+              >
+                <h2 class="col col-md-12 slide-up-text milesone-heading">
+                  Expansion:
+                </h2>
+                <p
+                  class="col col-md-12 description mobile-font scrub-letters"
+                  id="paragraph-3"
+                >
+                  Partnered with industry leaders to integrate cutting-edge
+                  technologies.
+                </p>
+              </div>
+              <div class="row flex-center-tab container-wrapper inner-height">
+                <h2 class="col col-md-12 slide-up-text milesone-heading">
+                  Today:
+                </h2>
+                <p
+                  id="paragraph-4"
+                  class="col col-md-12 description mobile-font scrub-letters"
+                >
+                  A people-centric company empowering chefs and communities
+                  through better, greener kitchens.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-6 master-col-two">
+              <h1 id="heading-5-number" class="row experience-year extraBold">
+                36+
+              </h1>
+              <div class="container-wrapper">
+                <h2
+                  id="heading-6"
+                  class="row experience-title regular slide-up-text "
+                >
+                  <span>Years of Expertise</span>
+                </h2>
+              </div>
+              <p
+                class="row experience-content mobile-font light full-width-flex"
+                id="paragraph-5"
+              >
+                <span class="scrub-letters"
+                  >“Decades of insights, tested processes, and continuous
+                  innovation."</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="our-value-sesion jornal-bottom">
+        <div class="fixed-hr-lines container">
+          <div class="row title-row">
+            <h1 class="col value-title extraBold slide-up-text " id="our-values-heading">
+             Our Values
+            </h1>
+          </div>
+          <hr />
+          <div class="content-box">
+            <div class="moving-content">
+              <div class="panel container">
+                <div class="row value-item sections">
+                  <div
+                    class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper animate-words-right"
+                    id="current-title"
+                  >
+                    Integrity
+                  </div>
+                  <p
+                    id="current-content"
+                    class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+                  >
+                    <span class="scrub-letters"
+                      >"We uphold honesty and transparency in every partnership
+                      and project, ensuring lasting trust."</span
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="panel container">
+                <div class="row value-item sections">
+                  <div
+                    class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper animate-words-right"
+                    id="current-title"
+                  >
+                    Respect
+                  </div>
+                  <p
+                    id="current-content"
+                    class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+                  >
+                    <span class="scrub-letters"
+                      >"By celebrating diverse perspectives and nurturing
+                      inclusive spaces, we spark creativity in every
+                      solution."</span
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="panel container">
+                <div class="row value-item sections">
+                  <div
+                    class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper animate-words-right"
+                    id="current-title"
+                  >
+                    Excellence
+                  </div>
+                  <p
+                    id="current-content"
+                    class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+                  >
+                    <span class="scrub-letters"
+                      >"A relentless pursuit of quality drives every step—from
+                      product selection to post-installation support."</span
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="panel container">
+                <div class="row value-item sections">
+                  <div
+                    class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper animate-words-right"
+                    id="current-title"
+                  >
+                    Sustainability
+                  </div>
+                  <p
+                    id="current-content"
+                    class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+                  >
+                    <span class="scrub-letters"
+                      >"We minimize our environmental impact with
+                      energy-efficient designs and responsible sourcing,
+                      ensuring a greener future for all."</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+
+        <div class="ourvalues-scroll-container"></div>
+      </section>
+
+      <!--########################################################################################-->
+
+      <!-- /MileStone Section -->
+      <!-- Our Values Section -->
+      <!--########################################################################################-->
+
+      <!--########################################################################################-->
+
+      <!-- /Our Values Section -->
+      <!-- Inside Paramount Section -->
+      <!--########################################################################################-->
+
+      <section id="inside-pm" class="inside-pm section">
+        <div class="container">
+          <div class="row inside-title-row container-wrapper moble-absolute">
+            <h1
+              class="col "
+              id="heading-7"
+            >
+              <span class="inside-title slide-up-text">Inside Paramount</span>
+            </h1>
+          </div>
+          <div class="row">
+            <div class="container mt-5">
+              <div class="row center-community">
+                <div class="inside-quote-box ">
+                  <p
+                    id="inside-paragraph-3 "
+                    class="mobile-font animate-sub-paragraph"
+                  >
+                    “Step <strong>behind the scenes</strong> and discover
+                    <strong
+                      >the people, passion, and collaborative spirit</strong
+                    >
+                    that define who we are. More than a buzzword,
+                    <strong>our culture is what drives us</strong> to transform
+                    commercial kitchens into hubs of
+                    <strong
+                      >efficiency, creativity, and community well-being.</strong
+                    >”
+                  </p>
+                </div>
+              </div>
+              <div class="row container-wrapper">
+                <h2
+                  class="center-flex center-text"
+                  id="heading-8"
+                >
+                  <span class="inside-section-heading black-weight slide-up-text"
+                    >Team & Leadership</span
+                  >
+                </h2>
+              </div>
+              <div class="row center-community">
+                <p
+                  class="sub-quote mobile-font animate-sub-paragraph"
+                  id="inside-paragraph-4"
+                >
+                  “From <strong>engineers and designers</strong> to customer
+                  success champions, <strong>our team’s</strong> diverse
+                  expertise powers every <strong>innovation</strong>.”
+                </p>
+              </div>
+
+              <div class="row inside-team-grid">
+                <div
+                  class="col-sm-12 col-lg-6 downward-box center-image-container"
+                >
+                  <div class="team-box">
+                    <img
+                      id="image-1"
+                      src="{{ asset('layout2025/img/blank-img.svg') }}"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="col-sm-12 col-lg-6 upward-box center-image-container"
+                >
+                  <div class="team-box">
+                    <img
+                      id="image-2"
+                      src="{{ asset('layout2025/img/blank-img.svg') }}"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row center-community">
+                <p
+                  class="sub-quote mt-4v mobile-font animate-sub-paragraph"
+                  id="inside-paragraph-4"
+                >
+                  "We believe inclusive
+                  <strong>collaboration fuels meaningful impact</strong> - one
+                  kitchen at a time.”
+                </p>
+              </div>
+
+              <div class="row inside-team-grid">
+                <div class="col col-md-6 upward-box center-image-container">
+                  <div class="team-box">
+                    <img
+                      id="image-3"
+                      src="{{ asset('layout2025/img/blank-img.svg') }}"
+                    />
+                  </div>
+                </div>
+
+                <div class="col col-md-6 downward-box center-image-container">
+                  <div class="team-box">
+                    <img
+                      id="image-4"
+                      src="{{ asset('layout2025/img/blank-img.svg') }}"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+      <div class="container-fluid logo-container">
+        <!------------------ slider starts --------------------->
+        <div
+          class="logos insidepm-slider-logos overflow-hidden py-5 px-0 position-relative"
+          style="white-space: nowrap"
+          id="marquee-1"
+        >
+          <div class="logos-slider-1 d-inline-block insidepm-logo">
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359520-3a125798-774e-423b-b738-5f5e495d276d.png"
+              alt=""
+            /><!--Etsy-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359525-2779538f-35e0-4727-89fa-04e523624630.png"
+              alt=""
+            /><!--Airbnb-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359530-00ed0fa5-9752-46df-bc07-4ab5dfe3dded.png"
+              alt=""
+            /><!--amazon-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359550-db8cbcba-e2ed-48e1-81dc-c396c35893eb.png"
+              alt=""
+            /><!--Target-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359532-4f2a2b1b-8eb7-4aaa-bda9-7d31df0d5cff.png"
+              alt=""
+            /><!--Netflix-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359536-909db7c6-660e-495d-9568-c63bdf1fab5d.png"
+              alt=""
+            /><!--Nasa-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359540-ba6f0359-617b-4e69-9b02-5137a6063738.png"
+              alt=""
+            /><!--Shopify-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359552-631b683f-859c-44e5-991f-23ff98110083.png"
+              alt=""
+            /><!--Uber-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359544-ccf33abb-f245-4c29-8f79-997e3eb206ee.png"
+              alt=""
+            /><!--Slack-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284363043-89f1bbc4-b919-4231-8b62-679785a2f20c.png"
+              alt=""
+            /><!--Google-->
+
+            <img
+              src="https://user-images.githubusercontent.com/78242022/284359560-9b7336a9-0dff-41c0-8f94-0a3ef06b679d.png"
+              alt=""
+            /><!--Walmark-->
+          </div>
+        </div>
+        <!------------------ slider ends --------------------->
+      </div>
+      <!-- /Inside Paramount Section -->
+      <!-- Culture Section -->
+      <section id="culture" class="culture section">
+        <div class="container center-action-position">
+          <div class="row culture-title-row center-align-center">
+            <h1 class="col head-center-flex">
+              <span class="culture-title slide-up-text">Culture in Action</span>
+            </h1>
+          </div>
+          <div class="row center-community">
+            <p
+              class="culture-quote-box mobile-font animate-sub-paragraph"
+              id="culture-paragraph-1"
+            >
+              “<strong>Curiosity and respect</strong> form the backbone of our
+              day-to-day. Through
+              <strong
+                >open communication, mentorship, and creative
+                brainstorming</strong
+              >, we’ve built a workplace where every voice shapes
+              <strong>the future of food service.</strong>”
+            </p>
+          </div>
+          <div class="row culture-content">
+            <div class="col col-md-12 text-start flex-center-mob">
+              <h1 class="row culture-sub" id="culture-heading-2">
+                <span class="slide-up-text">Collaboration & Innovation:</span>
+              </h1>
+              <p
+                class="row culture-description mobile-font"
+                id="culture-paragraph-2"
+              >
+                <span class="scrub-letters"
+                  >Cross-functional sessions, mentorship programs,
+                  workshops.</span
+                >
+              </p>
+            </div>
+            <div class="col col-md-12 right-content flex-center-mob end-item">
+              <h1 class="row culture-sub" id="culture-heading-3">
+                <span class="slide-up-text">Professional Growth:</span>
+              </h1>
+              <p
+                class="row culture-description mobile-font"
+                id="culture-paragraph-3"
+              >
+                <span class="scrub-letters">
+                  Ongoing training, skill-sharing, leadership development.</span
+                >
+              </p>
+            </div>
+            <div class="col col-md-12 text-start flex-center-mob">
+              <h1 class="row culture-sub" id="culture-heading-4">
+                <span class="slide-up-text">Collaboration & Innovation:</span>
+              </h1>
+              <p
+                class="row culture-description mobile-font"
+                id="culture-paragraph-4"
+              >
+                <span class="scrub-letters">
+                  Inclusion & Support: Equity, well-being, and a positive
+                  environment.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Culture Section -->
+      <!-- Community Section -->
+      <!--########################################################################################-->
+      <section id="community" class="community section">
+        <div class="container culture-title-row">
+          <div class="wrapper">
+            <div class="row text-center center-community">
+              <h2
+                class="fw-bold community-title center-box"
+                id="community-heading-1"
+              >
+                <span class="slide-up-text"
+                  >Community & Environmental Impact</span
+                >
+              </h2>
+            </div>
+            <div class="row center-community flex-height">
+              <p
+                class="community-quote-box text-center mobile-font animate-sub-paragraph"
+                id="community-paragraph-1"
+              >
+                “We see a world where
+                <strong>healthy, sustainable</strong> meals are accessible to
+                <strong>everyone</strong>. By championing
+                <strong>energy-saving equipment</strong> and supporting local
+                food programs,
+                <strong>we aim to uplift communities</strong> while reducing our
+                collective <strong>carbon footprint</strong>.”
+              </p>
+            </div>
+          </div>
+
+          <div class="row text-start community-third-row">
+            <div class="col-md-6 center-item section-one">
+              <h2 class="row community-sub-title" id="community-heading-2">
+                Energy Efficiency:
+              </h2>
+              <p
+                class="row community-sub-quote mobile-font"
+                id="community-paragraph-2"
+              >
+                <span class="scrub-letters">
+                  Helping clients reduce costs and resource consumption.
+                </span>
+              </p>
+            </div>
+            <div class="col-md-6 center-item section-two">
+              <h2 class="row community-sub-title" id="community-heading-3">
+                Philanthropy & Outreach:
+              </h2>
+              <p
+                class="row community-sub-quote mobile-font"
+                id="community-paragraph-3"
+              >
+                <span class="scrub-letters"
+                  >Collaborations with schools, food banks, and culinary
+                  institutes.</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="row text-center">
+            <div class="col-12 col-lg-4 flex-culter-center sub-columns">
+              <div class="flex-culter-center">
+                <h1 class="row community-fourth-title" id="community-heading-4">
+                  1M+
+                </h1>
+                <h2 class="row community-fourth-sub" id="community-heading-5">
+                  <span class="slide-up-text">Installations</span>
+                </h2>
+                <p
+                  class="row community-fourth-quote mobile-font"
+                  id="community-paragraph-4"
+                >
+                  <span class="scrub-letters">
+                    "Each installation represents a step toward more efficient,
+                    sustainable kitchens worldwide."</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div
+              class="col-12 col-lg-4 flex-culter-center sub-columns second-flex"
+            >
+              <div class="flex-culter-center">
+                <h1 class="row community-fourth-title" id="community-heading-6">
+                  35+
+                </h1>
+                <h2 class="row community-fourth-sub" id="community-heading-7">
+                  <span class="slide-up-text">Countries Served</span>
+                </h2>
+                <p
+                  class="row community-fourth-quote mobile-font"
+                  id="community-paragraph-5"
+                >
+                  <span class="scrub-letters"
+                    >"Our global footprint unites diverse culinary traditions
+                    under a shared commitment to quality."</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div
+              class="col-12 col-lg-4 flex-culter-center sub-columns last-flex"
+            >
+              <div class="flex-culter-center">
+                <h1 class="row community-fourth-title" id="community-heading-8">
+                  100K+
+                </h1>
+                <h2 class="row community-fourth-sub" id="community-heading-9">
+                  <span class="slide-up-text">Happy Customers</span>
+                </h2>
+                <p
+                  class="row community-fourth-quote mobile-font"
+                  id="community-paragraph-6"
+                >
+                  <span class="scrub-letters"
+                    >"Our people-first ethos has fostered strong, enduring
+                    relationships worldwide."</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+
+      <!-- /Community Section -->
+      <!-- Mission Section -->
+      <!--########################################################################################-->
+      <section id="mission" class="mission section ">
+        <div class="container mission-container-flex">
+          <div class="row flex-wrap-one">
+            <h2 class="fw-bold mission-head" id="mission-heading-1">
+              <span class="slide-up-text">Our Mission</span>
+            </h2>
+          </div>
+          <div class="row text-center flex-wrap-two">
+            <p
+              class="mission-text mobile-font animate-sub-paragraph"
+              id="mission-paragraph-1"
+            >
+              "To empower the culinary world through
+              <strong>expert guidance</strong>,
+              <strong>empathetic service</strong>, and
+              <strong>advanced equipment</strong>—enabling
+              <strong>healthier meals</strong>,
+              <strong>efficient kitchens</strong>, and
+              <strong>thriving communities</strong>."
+            </p>
+          </div>
+          <h1
+            id="mission-heading-2"
+            class="row fullfill text-center header-center"
+          >
+            <span class="slide-up-text">How We Fulfill It</span>
+          </h1>
+
+          <div class="row mission-row">
+            <div class="col-md-4 mission-card-one">
+              <h2 class="row mission-title text-center" id="mission-heading-3">
+                Brand Partnerships:
+              </h2>
+              <p
+                class="row mission-description mobile-font mission-card-one-child"
+                id="mission-paragraph-2"
+              >
+                Working with leading manufacturers for reliable, energy-saving
+                products.
+              </p>
+            </div>
+            <div class="col-md-4 mission-card-two">
+              <h2 class="row mission-title text-center" id="mission-heading-4">
+                Educational Focus:
+              </h2>
+              <p
+                class="row mission-description mobile-font mission-card-one-child"
+                id="mission-paragraph-3"
+              >
+                Training chefs and staff to optimize equipment use, reduce
+                waste.
+              </p>
+            </div>
+            <div class="col-md-4 mission-card-three">
+              <h2 class="row mission-title text-center" id="mission-heading-5">
+                Long-Term Service:
+              </h2>
+              <p
+                id="mission-paragraph-4"
+                class="row mission-description mobile-font mission-card-one-child"
+              >
+                From planning to maintenance, we stand by our clients every step
+                of the way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+
+      <!-- /Mission Section -->
+      <!-- Vision Section -->
+      <!--########################################################################################-->
+      <section id="vision" class="vision section">
+        <div class="container our-capabilities-container">
+          <h1 class="row vision-head" id="vision-heading-1">
+            <span class="slide-up-text">Our Vision </span>
+          </h1>
+          <div class="row vision-text text-center">
+            <div class="flex-wrapper">
+              <p
+                class="mobile-font animate-sub-paragraph"
+                id="vision-paragraph-1"
+              >
+                "A future where responsible
+                <strong>innovation and community well-being</strong> drive how
+                food is prepared and served. We envision kitchens that
+                <strong>preserve resources</strong>,
+                <strong>reduce costs</strong>, and help
+                <strong>chefs create healthy, satisfying meals for all.</strong
+                >"
+              </p>
+            </div>
+          </div>
+          <h1
+            id="vission-heading-2-1"
+            class="row fullfill text-center header-center text-white"
+          >
+            <span class="slide-up-text">How We Fulfill It</span>
+          </h1>
+
+          <div class="row vision-card-row">
+            <div class="col-md-4 vision-card-one vission-center">
+              <h2 class="row vision-title" id="vision-heading-2">
+                Brand Partnerships:
+              </h2>
+              <p
+                class="row vision-description mobile-font"
+                id="vision-paragraph-2"
+              >
+                Working with leading manufacturers for reliable, energy-saving
+                products.
+              </p>
+            </div>
+            <div class="col-md-4 vision-card-two vission-center">
+              <h2 class="row vision-title" id="vision-heading-3">
+                Educational Focus:
+              </h2>
+              <p
+                class="row vision-description mobile-font"
+                id="vision-paragraph-3"
+              >
+                Training chefs and staff to optimize equipment use, reduce
+                waste.
+              </p>
+            </div>
+            <div class="col-md-4 vision-card-three vission-center">
+              <h2 class="row vision-title" id="vision-heading-4">
+                Long-Term Service:
+              </h2>
+              <p
+                class="row vision-description mobile-font"
+                id="vision-paragraph-4"
+              >
+                From planning to maintenance, we stand by our clients every step
+                of the way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+
+      <!-- /Vision Section -->
+      <!-- Capability Section -->
+      <!--########################################################################################-->
+      <section id="capability" class="capability section">
+        <div class="container-fluid">
+          <div class="container our-capabilities-container">
+            <h1 class="row capability-head" id="capability-heading-1">
+              <span class="slide-up-text">Our Capabilities</span>
+            </h1>
+
+            <div class="row capability-text text-center">
+              <p
+                class="mobile-font animate-sub-paragraph"
+                id="capability-paragraph-1 "
+              >
+                "From ergonomic layouts to
+                <strong>high-efficiency appliances</strong>, our holistic
+                capabilities cover every step in creating a
+                <strong>better food service environment</strong>."
+              </p>
+            </div>
+
+            <div class="row capability-row">
+              <h2
+                class="col-12 col-md-12 col-lg-6 capability-row-title center-text-field"
+                id="capability-heading-2"
+              >
+                <span class="animate-words-right">Customized Solutions</span>
+              </h2>
+              <div class="col-12 col-md-12 col-lg-6 capability-row-description">
+                <p
+                  class="mobile-font center-text-field"
+                  id="capability-paragraph-2"
+                >
+                  <span class="scrub-letters"
+                    >Tailoring workflows and products to each client’s unique
+                    demands.</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="row capability-row">
+              <h2
+                id="capability-heading-3"
+                class="col-12 col-md-12 col-lg-6 capability-row-title center-text-field"
+              >
+                <span class="animate-words-right"
+                  >Energy-Efficient Equipment</span
+                >
+              </h2>
+              <div class="col-12 col-md-12 col-lg-6 capability-row-description">
+                <p
+                  class="mobile-font center-text-field"
+                  id="capability-paragraph-3"
+                >
+                  <span class="scrub-letters"
+                    >Minimizing carbon footprints and operational
+                    expenses.</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="row capability-row">
+              <h2
+                id="capability-heading-4"
+                class="col-12 col-md-12 col-lg-6 capability-row-title center-text-field"
+              >
+                <span class="animate-words-right"
+                  >Dedicated Service & Support</span
+                >
+              </h2>
+              <div class="col-12 col-md-12 col-lg-6 capability-row-description">
+                <p
+                  class="mobile-font center-text-field"
+                  id="capability-paragraph-4"
+                >
+                  <span class="scrub-letters"
+                    >Offering comprehensive planning, training, and lifetime
+                    guidance.</span
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="row capability-row">
+              <h2
+                id="capability-heading-5"
+                class="col-12 col-md-12 col-lg-6 capability-row-title center-text-field"
+              >
+                <span class="animate-words-right">Global Scalability</span>
+              </h2>
+              <div
+                class="col-12 col-md-12 col-lg-6 capability-row-description ml-5"
+              >
+                <p
+                  class="mobile-font center-text-field"
+                  id="capability-paragraph-5"
+                >
+                  <span class="scrub-letters"
+                    >Navigating diverse regulations and cultural preferences
+                    across markets.</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="row count-row">
+              <div
+                class="col-12 col-md-12 col-lg-6 capability-left-col flex-cener-capablity"
+              >
+                <div class="row capability-count" id="capability-heading-10">
+                  150+
+                </div>
+                <div class="row capability-sub">
+                  <h3 class="mt-0 mt-md-3 mt-lg-5" id="capability-heading-11">
+                    <span class="slide-up-text"
+                      >Leading Brand Partnerships</span
+                    >
+                  </h3>
+                </div>
+                <div class="row capability-quote">
+                  <p
+                    class="mobile-font center-text-field"
+                    id="capability-paragraph-10"
+                  >
+                    <span class="scrub-letters"
+                      >"Collaborating with industry pioneers to deliver
+                      cutting-edge solutions."</span
+                    >
+                  </p>
+                </div>
+              </div>
+              <div
+                class="col-12 col-md-12 col-lg-6 capability-right-col flex-cener-capablity"
+              >
+                <div class="row capability-count" id="capability-heading-8">
+                  15K+
+                </div>
+                <div class="row capability-sub">
+                  <h3 class="mt-0 mt-md-3 mt-lg-5" id="capability-heading-9">
+                    <span class="slide-up-text">Products Offered</span>
+                  </h3>
+                </div>
+                <div class="row capability-quote">
+                  <p
+                    class="mobile-font center-text-field"
+                    id="capability-paragraph-9"
+                  >
+                    <span class="scrub-letters"
+                      >"An evolving catalog addressing the varied demands of
+                      modern kitchens."</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!------------------ slider starts --------------------->
+            <div
+              class="logos capabilities-slider-logos overflow-hidden py-5 px-0 position-relative"
+              style="white-space: nowrap"
+            >
+              <div class="logos-slide d-inline-block capabilities-slider">
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359520-3a125798-774e-423b-b738-5f5e495d276d.png"
+                  alt=""
+                /><!--Etsy-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359525-2779538f-35e0-4727-89fa-04e523624630.png"
+                  alt=""
+                /><!--Airbnb-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359530-00ed0fa5-9752-46df-bc07-4ab5dfe3dded.png"
+                  alt=""
+                /><!--amazon-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359550-db8cbcba-e2ed-48e1-81dc-c396c35893eb.png"
+                  alt=""
+                /><!--Target-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359532-4f2a2b1b-8eb7-4aaa-bda9-7d31df0d5cff.png"
+                  alt=""
+                /><!--Netflix-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359536-909db7c6-660e-495d-9568-c63bdf1fab5d.png"
+                  alt=""
+                /><!--Nasa-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359540-ba6f0359-617b-4e69-9b02-5137a6063738.png"
+                  alt=""
+                /><!--Shopify-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359552-631b683f-859c-44e5-991f-23ff98110083.png"
+                  alt=""
+                /><!--Uber-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359544-ccf33abb-f245-4c29-8f79-997e3eb206ee.png"
+                  alt=""
+                /><!--Slack-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284363043-89f1bbc4-b919-4231-8b62-679785a2f20c.png"
+                  alt=""
+                /><!--Google-->
+
+                <img
+                  src="https://user-images.githubusercontent.com/78242022/284359560-9b7336a9-0dff-41c0-8f94-0a3ef06b679d.png"
+                  alt=""
+                /><!--Walmark-->
+              </div>
+            </div>
+            <!------------------ slider ends --------------------->
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+
+      <!-- /Capability Section -->
+      <!-- Discover Section -->
+      <!--########################################################################################-->
+      <section id="discover" class="discover section">
+        <div class="container discover-flex">
+          <h1 class="row discover-head" id="discover-heading-1">
+            <span class="slide-up-text">Discover More</span>
+          </h1>
+          <div class="row text-center">
+            <p
+              class="discover-quote mobile-font animate-sub-paragraph"
+              id="discover-paragraph-1"
+            >
+              "Curious about how our
+              <strong>dedication to quality</strong> translates into practical,
+              on-the-ground solutions? Visit our main site to browse our
+              <strong>product range, request quotes</strong>, or learn more
+              about how we
+              <strong>tailor solutions for every customer.</strong>"
+            </p>
+          </div>
+          <div class="row image-row">
+            <div class="col-md-8">
+              <img id="image-5" src="img/chef.png" alt="Kitchen Team" />
+            </div>
+            <!-- <div
+              id="expoler-btn"
+              class="col-md-4 explore-button-col text-center"
+            >
+            <div>Explore More</div>
+              <a href="#" class="btn btn-outline-dark explore-button"
+                ></a
+              >
+            </div> -->
+            <!-- <div class="col-md-4 center-btn btn-outline-dark explore-button">
+              <div class="buttons-container">
+                <a href="#" class="btns test-completed"></a>
+              </div>
+            </div> -->
+            <div class="buttons-container col-md-4">
+              <button class="btn-animated">
+                <span class="text-mask">
+                  <span class="texts original">Explore More</span>
+                  <span class="texts clone">Explore More</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+
+      <!-- /Discover Section -->
+      <!-- News-blogs Section -->
+      <!--########################################################################################-->
+
+      <section id="news" class="news section pb-3 pt-3 news-section-flex">
+        <div class="blog-top-border">
+          <div class="blog-side-border">
+            <!--------------------------------------------------------Border-------------------------------------------->
+
+            <!-- News & Updates Section -->
+            <div class="news-section border-bottom ">
+              <div class="container">
+                <div class="row">
+                  <p
+                    id="news-section-head"
+                    class="col-md-6 news-quote mobile-font d-flex align-items-center"
+                  >
+                    <span class="scrub-letters"
+                      >"Stay informed about our latest products, company
+                      milestones, and industry innovations.</span
+                    >
+                  </p>
+                  <div class="col-md-6 left-col-border">
+                    <div class="btn-container">
+                      <!-- Previous Button -->
+                      <button class="round-btn" id="blogprevBtn">&lt;</button>
+
+                      <!-- Next Button -->
+                      <button class="round-btn" id="blognextBtn">&gt;</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="news-section container">
+              <div class="row blog-row">
+                <!------------------------News slider ---------------->
+                <div class="container text-center my-3">
+                  <div class="row my-auto justify-content-center">
+                    <div id="blogCarousel" class="carousel slide">
+                      <div
+                        class="carousel-inner blogCarousel-inner"
+                        role="listbox"
+                      >
+                        <div
+                          class="carousel-item news-slider blog-carousel-item active"
+                        >
+                          <a href="#">
+                            <div class="card">
+                              <div class="card-img">
+                                <img
+                                  src="img/Mask Group 14.png"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <div class="card-body">
+                                <div class="row card-subtitle bsub">
+                                  By Paramount
+                                </div>
+                                <p class="row card-title bmain mobile-font">
+                                  Celebrating the Spirit of Christmas with
+                                  Paramount Group
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="carousel-item news-slider blog-carousel-item"
+                        >
+                          <a href="#">
+                            <div class="card">
+                              <div class="card-img">
+                                <img
+                                  src="img/Mask Group 13.png"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <div class="card-body">
+                                <div class="row card-subtitle bsub">
+                                  By Paramount
+                                </div>
+                                <p class="row card-title bmain mobile-font">
+                                  Honoring Qatar National Day: A Celebration of
+                                  Pride and Progress
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="carousel-item news-slider blog-carousel-item"
+                        >
+                          <a href="#">
+                            <div class="card">
+                              <div class="card-img">
+                                <img
+                                  src="img/Mask Group 9.png"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <div class="card-body">
+                                <div class="row card-subtitle bsub">
+                                  By Paramount
+                                </div>
+                                <div class="row card-title bmain mobile-font">
+                                  Honoring Bahrain National Day: A Celebration
+                                  of Pride and Progress
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="carousel-item news-slider blog-carousel-item"
+                        >
+                          <a href="#">
+                            <div class="card">
+                              <div class="card-img">
+                                <img
+                                  src="img/Mask Group 10.png"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <div class="card-body">
+                                <div class="row card-subtitle bsub">
+                                  By Paramount
+                                </div>
+                                <p class="row card-title bmain mobile-font">
+                                  Eid Al Etihad: Celebrating 53 Years of Unity,
+                                  Innovation, and Excellence
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="carousel-item news-slider blog-carousel-item"
+                        >
+                          <a href="#">
+                            <div class="card">
+                              <div class="card-img">
+                                <img
+                                  src="img/Mask Group 14.png"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <div class="card-body">
+                                <div class="row card-subtitle bsub">
+                                  By Paramount
+                                </div>
+                                <p class="row card-title bmain mobile-font">
+                                  Celebrating the Spirit of Christmas with
+                                  Paramount Group
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <div
+                          class="carousel-item news-slider blog-carousel-item"
+                        >
+                          <a href="#">
+                            <div class="card">
+                              <div class="card-img">
+                                <img
+                                  src="img/Mask Group 13.png"
+                                  class="img-fluid"
+                                />
+                              </div>
+                              <div class="card-body">
+                                <div class="row card-subtitle bsub">
+                                  By Paramount
+                                </div>
+                                <p class="row card-title bmain mobile-font">
+                                  Honoring Qatar National Day: A Celebration of
+                                  Pride and Progress
+                                </p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row text-end pr-4">
+                  <u><a href="#news">Explore More</a></u>
+                </div>
+                <!------------------------News slider ends ---------------->
+              </div>
+            </div>
+            <!--------------------------------------------------------Border bottom --------------------------------------------------->
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+
+      <!-- /News-blogs Section -->
+      <!-- testimonials Section -->
+      <!--########################################################################################-->
+
+      <section id="testimonial" class="testimonial section">
+        <div class="container">
+          <div class="testimonial-head-row">
+            <h1 class="row testimonial-head" id="testimonial-heding-1">
+              <span class="slide-up-text">Client Testimonials</span>
+            </h1>
+          </div>
+          <div
+            id="testimonialCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row testimonial-row">
+                  <div
+                    class="col-md-4 text-md-start text-center testimonial-client"
+                  >
+                    <h5 class="fw-bold client-name">Maria Al-Saud</h5>
+                    <p class="fst-italic client-details mobile-font">
+                      Lorem ipsum dolor
+                    </p>
+                  </div>
+                  <div class="col-md-8">
+                    <p class="fst-italic testimonial-description mobile-font">
+                      Finding a reliable partner for our supermarket equipment
+                      was a challenge until we discovered Paramount. Their
+                      products are top-notch, and their team's expertise in
+                      helping us select the right equipment has been invaluable.
+                      The after-sales service is prompt and professional, making
+                      them a key player in our operation's success.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row testimonial-row">
+                  <div
+                    class="col-md-4 text-md-start text-center testimonial-client"
+                  >
+                    <h5 class="fw-bold client-name">John Doe</h5>
+                    <p class="fst-italic client-details mobile-font">
+                      Business Owner
+                    </p>
+                  </div>
+                  <div class="col-md-8">
+                    <p class="fst-italic testimonial-description mobile-font">
+                      Paramount provided exceptional service and high-quality
+                      products. Their expertise helped streamline our
+                      operations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row testimonial-row">
+                  <div
+                    class="col-md-4 text-md-start text-center testimonial-client"
+                  >
+                    <h5 class="fw-bold client-name">Alice Smith</h5>
+                    <p class="fst-italic client-details mobile-font">
+                      Retail Manager
+                    </p>
+                  </div>
+                  <div class="col-md-8">
+                    <p class="fst-italic testimonial-description mobile-font">
+                      We are incredibly happy with Paramount's products and
+                      services. Their after-sales support is excellent!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row testimo-carousel-button-div">
+              <div class="col col-md-4">&nbsp;</div>
+              <div class="col col-md-2 stages">
+                <p class="text-muted small mb-2" id="slideInfo">1/3</p>
+              </div>
+              <div class="col col-md-3 d-flex justify-content-end">
+                <button
+                  class="btn btn-sm"
+                  data-bs-target="#testimonialCarousel"
+                  data-bs-slide="prev"
+                >
+                  &#10094;
+                </button>
+                <button
+                  class="btn btn-sm"
+                  data-bs-target="#testimonialCarousel"
+                  data-bs-slide="next"
+                >
+                  &#10095;
+                </button>
+              </div>
+              <div class="col col-md-3 d-flex justify-content-end"></div>
+            </div>
+          </div>
+          <!---------------------------------------------------------------->
+          <h1 class="row join-head" id="testimonial-heading-2">
+            <span class="slide-up-text">Join Us</span>
+          </h1>
+          <div class="row text-center">
+            <p
+              class="join-quote mobile-font animate-sub-paragraph"
+              id="testimonial-paragraph-2"
+            >
+              “We believe in cultivating
+              <strong
+                >a culture of growth, creativity, and community impact.</strong
+              >
+              If you share
+              <strong> our vision of empowering the culinary world</strong>
+              through responsible innovation, we’d
+              <strong>love to welcome you to our team.</strong>”
+            </p>
+          </div>
+          <div class="row testi-image-row">
+            <div class="col-md-8">
+              <img src="img/chef.png" id="image-6" alt="Kitchen Team" />
+            </div>
+            <div class="buttons-container col-md-4">
+              <button class="btn-animated">
+                <span class="text-mask">
+                  <span class="texts original">View Careers</span>
+                  <span class="texts clone">View Careers</span>
+                </span>
+              </button>
+            </div>
+          </div>
+          <!---------------------------------------------------------------->
+
+          <h1 class="row opp-dev text-center" id="testimonial-heading-10">
+            <span class="slide-up-text">Opportunities & Development</span>
+          </h1>
+          <div class="row">
+            <div class="row opportunity-row">
+              <h2
+                class="col-md-6 opportunity-row-title"
+                id="testimonial-heading-12"
+              >
+                <span class="animate-words-right"
+                  >Internships & Apprenticeships</span
+                >
+              </h2>
+              <div class="col-md-6 opportunity-row-description">
+                <p
+                  class="mobile-font scrub-letters"
+                  id="testimonial-heading-13"
+                >
+                  “Nurturing the next generation of culinary innovators.”
+                </p>
+              </div>
+            </div>
+            <div class="row opportunity-row">
+              <h2
+                class="col-12 col-md-6 opportunity-row-title"
+                id="testimonial-heading-14"
+              >
+                <span class="animate-words-right">Continuous Training</span>
+              </h2>
+              <div class="col-12 col-md-6 opportunity-row-description">
+                <p
+                  class="mobile-font scrub-letters"
+                  id="testimonial-heading-15"
+                >
+                  “Growing your skill set through specialized workshops and
+                  leadership programs.”
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--########################################################################################-->
+
+      <!-- /testimonials Section -->
+      <!-- footer Section -->
+      <!--########################################################################################-->
+
+      <footer class="bg-footer pb-3 pt-3">
+        <div class="container-fluid footer-top-border">
+          <div class="container-fluid footer-side-border">
+            <!--------------------------------------------------------Border-------------------------------------------->
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Newsletter Section -->
+                <div
+                  class="col-md-4 left-container text-start join-right flex-wrapper"
+                >
+                  <div class="row footer-logo">
+                    <img src="img/logo.svg" alt="Paramount Logo" />
+                  </div>
+                  <div class="row footer-width">
+                    <p class="fw-bold join-news cener-footer mobile-font">
+                      Join Our Newsletter!
+                    </p>
+                    <p class="join-description cener-footer mobile-font">
+                      Get the latest updates, offers, and news – straight to
+                      your inbox.
+                    </p>
+                  </div>
+                  <!-- <div class="row mt-4 mt-sm-0 footer-width">
+               
+                </div> -->
+                  <div class="row mt-4 mt-sm-0 get-mail-form-div">
+                    <form class="w-100">
+                      <!-- Added w-100 class here -->
+                      <div class="col col-md-12 p-0">
+                        <!-- Added p-0 to remove padding -->
+                        <div class="input-group mb-3 cener-footer">
+                          <input
+                            type="text"
+                            class="form-control mail-input"
+                            placeholder="Email"
+                            aria-label="Email"
+                            aria-describedby="basic-addon2"
+                          />
+                          <div class="input-group-append">
+                            <button
+                              class="btn btn-outline-secondary mail-input-btn"
+                              type="button"
+                            >
+                              <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="col-md-8 flex-wrapper join-left">
+                  <div class="row">
+                    <div class="col-12">
+                      <h6 class="fw-bold text-start quick-link cener-footer">
+                        Quick Links
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="row links-row">
+                    <div class="col-4">
+                      <ul class="list-unstyled small">
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Corporate Home</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Store</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Privacy Policy</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Terms & Conditions</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Return Policy</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                      <ul class="list-unstyled small">
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >About Us</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Contact Us</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Customer Care</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Careers</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Locations</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-4">
+                      <ul class="list-unstyled small">
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >My Account</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >Order History</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >My Wishlist</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="text-muted text-decoration-none"
+                            >My Questions</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row social-row">
+                    <!-- Social Media Icons -->
+                    <div
+                      class="text-center social justify-content-center align-items-center text-center"
+                    >
+                      <a href="#" class="text-muted mx-2"
+                        ><img src="img/linkedin.svg"
+                      /></a>
+                      <a href="#" class="text-muted mx-2"
+                        ><img src="img/twitter.svg"
+                      /></a>
+                      <a href="#" class="text-muted mx-2"
+                        ><img src="img/facebook.svg"
+                      /></a>
+                      <a href="#" class="text-muted mx-2"
+                        ><img src="img/insta.svg"
+                      /></a>
+                      <a href="#" class="text-muted mx-2"
+                        ><img src="img/pinterest.svg"
+                      /></a>
+                      <a href="#" class="text-muted mx-2"
+                        ><img src="img/youtube.svg"
+                      /></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--------------------------------------------------------Border bottom --------------------------------------------------->
+          </div>
+        </div>
+        <!-- Copyright Section -->
+        <div class="text-center text-muted small mt-1">
+          Copyright © 2025 Paramount. All Rights Reserved.
+        </div>
+      </footer>
+      <!--########################################################################################-->
+
+      <!-- /footer Section -->
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"
+      integrity="sha512-f6bQMg6nkSRw/xfHw5BCbISe/dJjXrVGfz9BSDwhZtiErHwk7ifbmBEtF9vFW8UNIQPhV2uEFVyI/UHob9r7Cw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let items = document.querySelectorAll(".carousel .news-slider");
+
+      items.forEach((el) => {
+        const minPerSlide = 6;
+        let next = el.nextElementSibling;
+        for (var i = 1; i < minPerSlide; i++) {
+          if (!next) {
+            // wrap carousel by using first child
+            next = items[0];
+          }
+          let cloneChild = next.cloneNode(true);
+          el.appendChild(cloneChild.children[0]);
+          next = next.nextElementSibling;
+        }
+      });
+
+      document
+        .getElementById("blogprevBtn")
+        .addEventListener("click", function () {
+          let carousel = new bootstrap.Carousel(
+            document.getElementById("blogCarousel")
+          );
+          carousel.prev(); // Moves to the previous slide
+        });
+
+      document
+        .getElementById("blognextBtn")
+        .addEventListener("click", function () {
+          let carousel = new bootstrap.Carousel(
+            document.getElementById("blogCarousel")
+          );
+          carousel.next(); // Moves to the next slide
+        });
+    </script>
+
+    <script>
+      const cloned_logos = document
+        .querySelector(".capabilities-slider")
+        .cloneNode(true);
+      const append_logos = document
+        .querySelector(".capabilities-slider-logos")
+        .appendChild(cloned_logos);
+    </script>
+    <script>
+      const cl = document.querySelector(".insidepm-logo").cloneNode(true);
+      const lgs = document
+        .querySelector(".insidepm-slider-logos")
+        .appendChild(cl);
+    </script>
+
+    <!-- <script>
+      document.addEventListener("scroll", function () {
+        let elements = document.querySelectorAll(".title-content");
+        let currentTitle = document.getElementById("current-title");
+        let currentContent = document.getElementById("current-content");
+        let middleOfViewport = window.innerHeight / 2;
+
+        elements.forEach((el, index) => {
+          let rect = el.getBoundingClientRect();
+          if (rect.top < middleOfViewport && rect.bottom > middleOfViewport) {
+            // Remove all index classes first
+            currentTitle.classList.remove(
+              "index-1",
+              "index-2",
+              "index-3",
+              "index-4"
+            );
+            currentContent.classList.remove(
+              "index-1",
+              "index-2",
+              "index-3",
+              "index-4"
+            );
+
+            // Add index-based class (index+1 since we want 1-based numbering)
+            currentTitle.classList.add(`index-${index + 1}`);
+            currentContent.classList.add(`index-${index + 1}`);
+
+            // Update content if changed
+            if (currentTitle.innerText !== el.getAttribute("data-title")) {
+              currentTitle.innerText = el.getAttribute("data-title");
+              currentContent.innerText = el.getAttribute("data-content");
+            }
+          }
+        });
+      });
+    </script> -->
+    <!-- <script>
+      function generateLeftPositions(count, start = 10, end = 90) {
+        if (count === 1) return [50]; // Special case: center if only one
+        const step = (end - start) / (count - 1);
+        return Array.from({ length: count }, (_, i) =>
+          Number((start + i * step).toFixed(2))
+        );
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const container = document.querySelector(".scroll-container");
+        const timelineContainer = document.querySelector(".timeline-container");
+        const timelineItems = document.querySelectorAll(".timeline-item");
+
+        const percentageLength = generateLeftPositions(timelineItems.length);
+        timelineItems.forEach((item, index) => {
+          const leftPercent = percentageLength[index];
+          item.style.left = `${leftPercent}%`;
+        });
+        const innerWidth = window.innerWidth;
+        const totalWidth = innerWidth - innerWidth / 6;
+
+        // Initialize with Abu Dhabi active
+        setActive(document.getElementById("1"));
+
+        // Horizontal scroll animation
+        let tl = gsap.to(timelineContainer, {
+          x: () => -totalWidth,
+          ease: "none",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: () => `+=${totalWidth}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onUpdate: updateActiveItem,
+          },
+        });
+
+        // Click handlers
+        timelineItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const rect = this.getBoundingClientRect();
+            const targetX =
+              rect.left +
+              window.scrollX -
+              window.innerWidth / 2 +
+              rect.width / 2;
+
+            gsap.to(timelineContainer, {
+              x: -targetX,
+              duration: 1,
+              ease: "power2.inOut",
+              onComplete: () => setActive(this),
+            });
+          });
+        });
+
+        // Update active item
+        function updateActiveItem() {
+          const scrollX = Math.abs(timelineContainer.getBoundingClientRect().x);
+          const viewportCenter = scrollX + window.innerWidth / 2;
+
+          let closestItem = null;
+          let smallestDistance = Infinity;
+
+          timelineItems.forEach((item) => {
+            const rect = item.getBoundingClientRect();
+            const itemCenter = rect.left + rect.width / 2 + scrollX;
+            const distance = Math.abs(viewportCenter - itemCenter);
+
+            if (distance < smallestDistance) {
+              smallestDistance = distance;
+              closestItem = item;
+            }
+          });
+
+          if (closestItem) {
+            setActive(closestItem);
+          }
+        }
+
+        function setActive(element) {
+          timelineItems.forEach((el) => el.classList.remove("active"));
+          element.classList.add("active");
+        }
+      });
+    </script> -->
+
+    <!-- <script src="Timeline.js"></script> -->
+    <script src="Timeline.js"></script>
+    <script src="stayScroll.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="cursor.js"></script>
+    <script src="stayUpAnimation.js"></script>
+    <script src="script2025.js"></script>
+    <script src="gsap.js"></script>
+    <script src="waveWord.js"></script>
+    <script src="styleScript.js"></script>
+  </body>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script> -->
+</html>

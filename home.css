@@ -1,0 +1,162 @@
+/* animation */
+.home-wrapper {
+  width: 100%;
+  height: 96px;
+  position: relative;
+  overflow: hidden;
+  .animation-title {
+    position: absolute;
+    /* font-size: 3rem; */
+    line-height: 5.2rem;
+  }
+}
+.bg-home-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bg-home-flex {
+  display: flex;
+  flex-direction: column;
+}
+.big-text {
+  span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+.fade-word {
+  opacity: 0.05;
+  display: inline-block;
+  margin-right: 0.25em;
+  transition: opacity 0.9s ease;
+}
+.containers {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  margin: 0px;
+}
+.bg-home {
+  background-color: #ececec;
+  height: 94vh;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+.right-content {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.big-text {
+  font-size: 199px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.home-quote {
+  font-size: 22px;
+}
+.headings-class {
+  position: relative;
+  margin-top: 204px;
+}
+.quote {
+  font-size: 26px;
+}
+.headings-class h2 {
+  font-size: 108px;
+  font-weight: 800;
+  color: #000;
+  line-height: 1.1;
+}
+
+.quote-box {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+/* .line {
+  width: 40px;
+  border-top: 2px solid #000;
+  margin-top: 16px;
+} */
+.line {
+  width: 40px !important;
+  opacity: 0;
+  border-top: 2px solid #000;
+  position: relative;
+  bottom: -16px;
+  /* margin-top: 16px; */
+  
+}
+
+.layers-home {
+  width: 70%;
+  height: 70px;
+  position: relative;
+  overflow: hidden;
+  span {
+    position: absolute;
+    font-size: 3rem;
+    line-height: 4.2rem;
+  }
+}
+
+.quote {
+  font-size: 18px;
+  color: #333;
+  max-width: 400px;
+}
+.animation-container {
+  width: 70%;
+  height: 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+.animation-container span {
+  position: absolute;
+  font-size: 3rem;
+  line-height: 4.2rem;
+}
+
+@media (max-width: 767px) {
+  .headings-class h2 {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .quote-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .line {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .home-wrapper {
+    .animation-title {
+      line-height: 3.2rem;
+    }
+  }
+  .home-quote {
+    font-size: 14px;
+  }
+}

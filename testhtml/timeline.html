@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra-Compact Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .fixed-lines {
+            position: relative;
+            z-index: 99;
+            padding: 20px 0;
+            background: #f4f4f4;
+            text-align: center;
+        }
+  
+        .fixed-lines hr {
+            border: none;
+            height: 2px;
+            background: #ccc;
+            margin: 20px 0;
+        }
+  
+        .content-box {
+            overflow: hidden;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+  
+        .moving-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+  
+        .panel {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            font-weight: bold;
+        }
+  
+        .scroll-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .timeline-section {
+            position: relative;
+            height: 100vh;
+        }
+        
+        .timeline-container {
+            display: flex;
+            width: 120vw;
+            height: 100vh;
+            align-items: center;
+        }
+        
+        .timeline-wrapper {
+            position: relative;
+            height: 100vh;
+        }
+        
+        .timeline {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+            margin-top: 30vh;
+        }
+        
+        .timeline-item {
+            position: absolute;
+            cursor: pointer;
+            width: 10vw;
+        }
+        
+        #year-1988 { left: 10%; }
+        #year-1998 { left: 35%; }
+        #year-2002 { left: 60%; }
+        #year-2006 { left: 85%; }
+        
+        .timeline-point {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            background-color: #000;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-connector {
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 30px;
+            border-left: 2px dotted #000;
+            transform: translateX(-50%);
+            top: -30px;
+        }
+        
+        .timeline-city {
+            position: absolute;
+            font-size: 18px;
+            font-weight: normal;
+            color: #000;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -60px;
+            white-space: nowrap;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            font-size: 14px;
+            color: #000;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 10px;
+        }
+        
+        .active .timeline-city {
+            font-weight: bold;
+        }
+        
+        .next-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ddd;
+            font-size: 32px;
+        }
+        
+        section {
+            padding: 50px;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="timeline-section">
+        <div class="scroll-container">
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item active" id="year-1988">
+                        <div class="timeline-city">Abu Dhabi</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-point"></div>
+                        <div class="timeline-year">1988</div>
+                    </div>
+                    <div class="timeline-item" id="year-1998">
+                        <div class="timeline-city">Sharjah</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-point"></div>
+                        <div class="timeline-year">1998</div>
+                    </div>
+                    <div class="timeline-item" id="year-2002">
+                        <div class="timeline-city">Doha</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-point"></div>
+                        <div class="timeline-year">2002</div>
+                    </div>
+                    <div class="timeline-item" id="year-2006">
+                        <div class="timeline-city">Dubai</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-point"></div>
+                        <div class="timeline-year">2006</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="fixed-lines">
+        <hr>
+        <div class="content-box">
+            <div class="moving-content">
+                <div class="panel">Integrity</div>
+                <div class="panel">Respect</div>
+                <div class="panel">Excellence</div>
+                <div class="panel">Sustainability</div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    
+    <div class="next-section">
+        <p>Next Section Content</p>
+    </div>
+    
+    <section>
+        dsdssssddsds
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // First timeline animation
+            const container = document.querySelector(".scroll-container");
+            const timelineContainer = document.querySelector(".timeline-container");
+            const timelineItems = document.querySelectorAll(".timeline-item");
+            const totalWidth = timelineContainer.offsetWidth - window.innerWidth;
+            
+            setActive(document.getElementById('year-1988'));
+            
+            const tlScroll = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".timeline-section",
+                    start: "top top",
+                    end: () => `+=${totalWidth}`,
+                    scrub: 1,
+                    pin: true,
+                    anticipatePin: 1,
+                    onUpdate: updateActiveItem
+                }
+            });
+            
+            tlScroll.to(timelineContainer, {
+                x: () => -totalWidth,
+                ease: "none"
+            });
+            
+            // Then the fixed lines animation
+            const panels = gsap.utils.toArray(".panel");
+            
+            gsap.to(".moving-content", {
+                yPercent: -(100 * (panels.length - 1)),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".fixed-lines",
+                    start: "top top",
+                    end: "+=500",
+                    scrub: true,
+                    pin: true,
+                    snap: 1 / (panels.length - 1),
+                    anticipatePin: 1
+                }
+            });
+            
+            timelineItems.forEach(item => {
+                item.addEventListener("click", function() {
+                    const rect = this.getBoundingClientRect();
+                    const targetX = rect.left + window.scrollX - (window.innerWidth / 2) + (rect.width / 2);
+                    
+                    gsap.to(timelineContainer, {
+                        x: -targetX,
+                        duration: 0.7,
+                        ease: "power2.out",
+                        onComplete: () => setActive(this)
+                    });
+                });
+            });
+            
+            function updateActiveItem() {
+                const scrollX = Math.abs(timelineContainer.getBoundingClientRect().x);
+                const viewportCenter = scrollX + (window.innerWidth / 2);
+                
+                let closestItem = null;
+                let smallestDistance = Infinity;
+                
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const itemCenter = rect.left + (rect.width / 2) + scrollX;
+                    const distance = Math.abs(viewportCenter - itemCenter);
+                    
+                    if (distance < smallestDistance) {
+                        smallestDistance = distance;
+                        closestItem = item;
+                    }
+                });
+                
+                if (closestItem) {
+                    setActive(closestItem);
+                }
+            }
+            
+            function setActive(element) {
+                timelineItems.forEach(el => el.classList.remove("active"));
+                element.classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Word Animation with Nested Tags</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: white;
+      min-height: 300vh;
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .mobile-font {
+      font-size: 2rem;
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .fade-word {
+      opacity: 0.05;
+      display: inline-block;
+      margin-right: 0.25em;
+      transition: opacity 0.9s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <p class="mobile-font animate-paragraph">
+      “Step <strong>behind the scenes</strong> and discover
+      <strong>the people, passion, and collaborative spirit</strong>
+      that define who we are. More than a buzzword,
+      <strong>our culture is what drives us</strong> to transform
+      commercial kitchens into hubs of
+      <strong>efficiency, creativity, and community well-being.</strong>”
+    </p>
+  </div>
+
+  <!-- <div class="section"> -->
+    <p class="animate-paragraph">
+      “Step <strong>behind the scenes</strong> and discover
+      <strong>the people, passion, and collaborative spirit</strong>
+      that define who we are. More than a buzzword,
+      <strong>our culture is what drives us</strong> to transform
+      commercial kitchens into hubs of
+      <strong>efficiency, creativity, and community well-being.</strong>”
+    </p>
+  <!-- </div>¬ -->
+
+  <div class="section">
+    <p class="mobile-font animate-paragraph">
+      Another version of the same <strong>sentence</strong> for animation.
+    </p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    function wrapWordsInElement(el, wordClass = "fade-word") {
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+      const textNodes = [];
+
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (node.nodeValue.trim().length) {
+          textNodes.push(node);
+        }
+      }
+
+      textNodes.forEach(textNode => {
+        const words = textNode.nodeValue.split(/(\s+)/); // keep spaces
+        const fragment = document.createDocumentFragment();
+
+        words.forEach(word => {
+          if (word.trim().length > 0) {
+            const span = document.createElement("span");
+            span.className = wordClass;
+            span.textContent = word;
+            fragment.appendChild(span);
+          } else {
+            fragment.appendChild(document.createTextNode(word));
+          }
+        });
+
+        textNode.parentNode.replaceChild(fragment, textNode);
+      });
+    }
+
+    function animateWords(targetClass, options = {}) {
+      const wordClass = options.wordClass || "fade-word";
+
+      document.querySelectorAll(`.${targetClass}`).forEach(el => {
+        wrapWordsInElement(el, wordClass);
+
+        const wordSpans = el.querySelectorAll(`.${wordClass}`);
+
+        gsap.to(wordSpans, {
+          opacity: 1,
+          ease: options.ease || "power2.out",
+          stagger: options.stagger || 0.05,
+          scrollTrigger: {
+            trigger: el.closest('.section') || el,
+            start: options.start || "top 30%",
+            end: options.end || "bottom 100%",
+            scrub: options.scrub ?? 1,
+            markers: options.markers || false
+          }
+        });
+      });
+    }
+
+    // Example usage:
+    animateWords("animate-paragraph", {
+      wordClass: "fade-word",
+      stagger: 0.1,
+      ease: "power3.out",
+      scrub: 1,
+      markers: true // disable in production
+    });
+  
+  
+  </script>
+
+</body>
+</html>

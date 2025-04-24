@@ -1,0 +1,36 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0;
+}
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    opacity: 0;
+}
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    opacity: 0;
+}
+.text-block {
+    margin: 40px 0;
+    transform: translateX(100px);
+    opacity: 0;
+}
+.spacer {
+    height: 100vh;
+}
+.highlight {
+    color: #e74c3c;
+    font-weight: bold;
+}

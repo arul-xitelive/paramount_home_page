@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Essential Styles */
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      .section {
+        height: 100vh;
+        padding: 20px;
+        position: relative;
+        background: white; /* Crucial for overlap prevention */
+        z-index: 1;
+      }
+
+      .rows-container {
+        height: calc(100vh - 100px);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .row {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3em;
+        position: absolute;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.5s ease-out;
+      }
+
+      .next-section {
+        background: #f0f0f0;
+        z-index: 2; /* Higher than first section */
+      }
+
+      /* Pin Spacer Container */
+      .pin-container {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Pinned Section Container -->
+    <div class="pin-container">
+      <section class="section">
+        <h1 class="heading">Our Services</h1>
+        <div class="rows-container">
+          <div class="row value-item">
+            <div
+              class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper"
+              id="current-title"
+            >
+              Integrity 1
+            </div>
+            <p
+              id="current-content"
+              class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+            >
+              "We uphold honesty and transparency in every partnership and
+              project, ensuring lasting trust."
+            </p>
+          </div>
+          <div class="row value-item">
+            <div
+              class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper"
+              id="current-title"
+            >
+              Integrity 2
+            </div>
+            <p
+              id="current-content"
+              class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+            >
+              "We uphold honesty and transparency in every partnership and
+              project, ensuring lasting trust."
+            </p>
+          </div>
+          <div class="row value-item">
+            <div
+              class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper"
+              id="current-title"
+            >
+              Integrity 3
+            </div>
+            <p
+              id="current-content"
+              class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+            >
+              "We uphold honesty and transparency in every partnership and
+              project, ensuring lasting trust."
+            </p>
+          </div>
+          <div class="row value-item">
+            <div
+              class="title col-12 col-md-12 col-lg-6 value-subtitle black-weight our-valueswrapper"
+              id="current-title"
+            >
+              Integrity 4
+            </div>
+            <p
+              id="current-content"
+              class="content col-12 col-md-12 col-lg-6 value-description mobile-font our-valueswrapper"
+            >
+              "We uphold honesty and transparency in every partnership and
+              project, ensuring lasting trust."
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Next Section -->
+    <section class="section next-section">
+      <h1>Next Section</h1>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Elements
+      const rows = gsap.utils.toArray(".row");
+      const pinContainer = document.querySelector(".pin-container");
+      const nextSection = document.querySelector(".next-section");
+
+      // Set initial active row
+      gsap.set(rows[0], { opacity: 1, y: 0 });
+
+      // Main Scroll Trigger
+      ScrollTrigger.create({
+        trigger: pinContainer,
+        start: "top top",
+        end: () => `+=${(rows.length - 1) * 50}%`,
+        scrub: 0.8,
+        pin: true,
+        anticipatePin: 1,
+        onUpdate: (self) => {
+          const activeIndex = Math.floor(self.progress * (rows.length - 1));
+          animateRows(activeIndex);
+        },
+        onLeave: () => {
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: nextSection,
+            ease: "power2.inOut",
+          });
+        },
+      });
+
+      // Row Animation Controller
+      function animateRows(index) {
+        rows.forEach((row, i) => {
+          const isActive = i === index;
+          const direction = i < index ? -50 : 50;
+
+          gsap.to(row, {
+            opacity: isActive ? 1 : 0,
+            y: isActive ? 0 : direction,
+            duration: 0.5,
+          });
+        });
+      }
+
+      // Prevent Mobile Issues
+      ScrollTrigger.config({
+        limitCallbacks: true,
+        ignoreMobileResize: true,
+      });
+
+      // Handle Resize
+      window.addEventListener("resize", () => ScrollTrigger.refresh());
+    </script>
+  </body>
+</html>

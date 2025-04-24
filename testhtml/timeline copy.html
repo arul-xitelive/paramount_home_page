@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Timeline</title>
+    <style>
+        body {
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .scroll-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .timeline-container {
+            display: flex;
+            width: 300vw; /* Reduced from 400vw to make spacing tighter */
+            height: 100vh;
+            align-items: center;
+        }
+        .timeline {
+            position: relative;
+            width: 100%;
+            height: 5px;
+            background-color: #d3d3d3;
+        }
+        .timeline-item {
+            position: absolute;
+            text-align: center;
+            cursor: pointer;
+            width: 20vw; /* Added fixed width for better control */
+        }
+        /* Adjusted spacing percentages - more compact */
+        #year-1988 { left: 15%; }
+        #year-1998 { left: 40%; }
+        #year-2002 { left: 65%; }
+        #year-2006 { left: 90%; }
+        .timeline-point {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: #777;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            transition: all 0.3s ease;
+        }
+        .timeline-city {
+            font-size: 24px;
+            font-weight: bold;
+            color: #777;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+        .timeline-year {
+            font-size: 18px;
+            color: #777;
+            transition: color 0.3s ease;
+        }
+        .active .timeline-city,
+        .active .timeline-year {
+            color: black;
+        }
+        .active .timeline-point {
+            background-color: #000;
+            transform: translateX(-50%) scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container">
+        <div class="timeline-container">
+            <div class="timeline">
+                <div class="timeline-item active" id="year-1988">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-city">Abu Dhabi</div>
+                    <div class="timeline-year">1988</div>
+                </div>
+                <div class="timeline-item" id="year-1998">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-city">Sharjah</div>
+                    <div class="timeline-year">1998</div>
+                </div>
+                <div class="timeline-item" id="year-2002">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-city">Doha</div>
+                    <div class="timeline-year">2002</div>
+                </div>
+                <div class="timeline-item" id="year-2006">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-city">Dubai</div>
+                    <div class="timeline-year">2006</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="milestone" class="milestone section">
+        <div class="container m-container">
+          <h1 id="heading-1" class="row main-title flex-center-mob extraBold">
+            Key Milestones &
+            <br />
+            Growth
+          </h1>
+          <div class="row flex-center-tab">
+            <div class="col-sm-12 col-lg-6 master-col-one">
+              <div class="row flex-center-tab">
+                <h2
+                  id="heading-2"
+                  class="col col-md-12 sub-title black-weight mailestonespacing"
+                >
+                  Foundations:
+                </h2>
+                <p
+                  id="paragraph-2"
+                  class="col col-md-12 description mobile-font"
+                >
+                  A modest operation focused on efficient kitchen solutions.
+                </p>
+              </div>
+              <div class="row flex-center-tab" id="inner-milestone">
+                <h2
+                  id="heading-3"
+                  class="col col-md-12 sub-title black-weight mailestonespacing"
+                >
+                  Expansion:
+                </h2>
+                <p
+                  class="col col-md-12 description mobile-font"
+                  id="paragraph-3"
+                >
+                  Partnered with industry leaders to integrate cutting-edge
+                  technologies.
+                </p>
+              </div>
+              <div class="row flex-center-tab">
+                <h2
+                  id="heading-4"
+                  class="col col-md-12 sub-title black-weight mailestonespacing"
+                >
+                  Today:
+                </h2>
+                <p
+                  id="paragraph-4"
+                  class="col col-md-12 description mobile-font"
+                >
+                  A people-centric company empowering chefs and communities
+                  through better, greener kitchens.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-lg-6 master-col-two">
+              <h1 id="heading-5" class="row experience-year extraBold">36+</h1>
+              <h2 id="heading-6" class="row experience-title regular">
+                Years of Expertise
+              </h2>
+              <p
+                class="row experience-content mobile-font light full-width-flex"
+                id="paragraph-5"
+              >
+                “Decades of insights, tested processes, and continuous
+                innovation."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const container = document.querySelector(".scroll-container");
+            const timelineContainer = document.querySelector(".timeline-container");
+            const timelineItems = document.querySelectorAll(".timeline-item");
+            const totalWidth = timelineContainer.scrollWidth - window.innerWidth;
+            
+            // Initialize with Abu Dhabi active
+            setActive(document.getElementById('year-1988'));
+
+            // Horizontal scroll animation
+            let tl = gsap.to(timelineContainer, {
+                x: () => -totalWidth,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: container,
+                    start: "top top",
+                    end: () => `+=${totalWidth}`,
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                    onUpdate: updateActiveItem
+                }
+            });
+
+            // Click handlers
+            timelineItems.forEach(item => {
+                item.addEventListener("click", function() {
+                    const rect = this.getBoundingClientRect();
+                    const targetX = rect.left + window.scrollX - (window.innerWidth/2) + (rect.width/2);
+                    
+                    gsap.to(timelineContainer, {
+                        x: -targetX,
+                        duration: 1,
+                        ease: "power2.inOut",
+                        onComplete: () => setActive(this)
+                    });
+                });
+            });
+
+            // Update active item
+            function updateActiveItem() {
+                const scrollX = Math.abs(timelineContainer.getBoundingClientRect().x);
+                const viewportCenter = scrollX + (window.innerWidth / 2);
+                
+                let closestItem = null;
+                let smallestDistance = Infinity;
+                
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const itemCenter = rect.left + (rect.width / 2) + scrollX;
+                    const distance = Math.abs(viewportCenter - itemCenter);
+                    
+                    if (distance < smallestDistance) {
+                        smallestDistance = distance;
+                        closestItem = item;
+                    }
+                });
+                
+                if (closestItem) {
+                    setActive(closestItem);
+                }
+            }
+
+            function setActive(element) {
+                timelineItems.forEach(el => el.classList.remove("active"));
+                element.classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: #fff;
+      overflow: hidden;
+    }
+    .magnetic-btn {
+      padding: 20px 40px;
+      background: #3a4eff;
+      color: #fff;
+      border-radius: 50px;
+      transition: transform 0.2s ease;
+      position: relative;
+      cursor: pointer;
+      font-size: 20px;
+      font-family: sans-serif;
+    }
+    .moon-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #3a4eff;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+    .inner-flex {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .inner-point {
+      height: 5px;
+      width: 5px;
+      border-radius: 50%;
+      background: #3a4eff;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="magnetic-btn">START THE EXPERIENCE</button>
+
+  <div class="moon-cursor" id="moon">
+    <div class="inner-flex">
+      <div class="inner-point"></div>
+    </div>
+  </div>
+
+<script>
+  const moon = document.getElementById('moon');
+  const btn = document.querySelector('.magnetic-btn');
+
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
+  const speed = 0.15;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const distance = Math.sqrt(x * x + y * y);
+
+    if (distance < 100) {
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    } else {
+      btn.style.transform = `translate(0, 0)`;
+    }
+  });
+
+  function animateMoon() {
+    currentX += (mouseX - currentX) * speed;
+    currentY += (mouseY - currentY) * speed;
+    moon.style.left = currentX + 'px';
+    moon.style.top = currentY + 'px';
+    requestAnimationFrame(animateMoon);
+  }
+
+  animateMoon();
+</script>
+
+</body>
+</html>
